@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { getProductByCategories } from './products/axios.products';
 import { Product } from './context/ProductContextProvider';
 import { Divider } from '@chakra-ui/react';
+import Navbar from './components/Heading/Navbar';
 
 const Electronics = () => {
     const [electronic, setElectronic] = useState([])
@@ -25,7 +26,10 @@ const Electronics = () => {
 
   }
   return (
+    <>
+    <Navbar/>
     <div className='items-center flex flex-col justify-  md:mt-8 lg:mt-4 mb-4 px-5 sm:px-10 md:px-20 mt-10'>
+    
       <span className='text-base md:text-xl font-semibold'>
                 <p className='flex flex-row gap-1'>Top product of <p className='text-primary'>Electronic</p></p>
                 <hr className='border-2 mt-1 border-primary md:w-1/2'></hr>
@@ -58,6 +62,7 @@ const Electronics = () => {
         }
       </div>
     </div >
+    </>
   )
 }
 

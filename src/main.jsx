@@ -14,7 +14,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <CartState>
         <ChakraProvider>
           <div className='flex flex-col'>
-          <Navbar />
           <App />
           <Footersection/>
           </div>

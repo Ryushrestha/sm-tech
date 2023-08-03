@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { BsFilter, BsSearch } from 'react-icons/bs'
 import { GrFormView } from 'react-icons/gr'
 import { Product } from '../../context/ProductContextProvider'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -33,6 +34,7 @@ const Search = () => {
   }
 
   const { handleProduct } = useContext(Product)
+  const navigate = useNavigate()
 
   const viewHandler = (e, products) => {
     e.preventDefault()
@@ -57,7 +59,7 @@ const Search = () => {
 
           product != null && product.map((products) => {
             return (
-              <div className='flex flex-col px-5' >
+              <div className='flex flex-col px-5 cursor-pointer' onClick={(e) => viewHandler(e, products)}>
                 
                 <div className=' flex flex-row py-3 items-center justify-between' key={products.id}>
                   <div className='flex flex-row items-center gap-4'>
@@ -69,7 +71,7 @@ const Search = () => {
                       <p className='uppercase text-xs text-navtext'>{products.category}</p>
                     </span>
                   </div>
-                  <span className='cursor-pointer' onClick={(e) => viewHandler(e, products)} >
+                  <span className='cursor-pointer'  >
                     <GrFormView className='bg-primary hover:bg-white text-inactiveColor text-3xl rounded-full' />
                   </span>
                 </div>

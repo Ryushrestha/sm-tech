@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getJeweleryByCategories } from './products/axios.products'
 import { Product } from './context/ProductContextProvider'
+import Navbar from './components/Heading/Navbar'
 
 const Jewellery = () => {
     const [electronic, setElectronic] = useState([])
@@ -27,6 +28,8 @@ const Jewellery = () => {
     }
   
   return (
+    <>
+    <Navbar/>
     <div className='items-center flex flex-col justify-  md:mt-8 lg:mt-4 mb-4 px-5 sm:px-10 md:px-20 mt-10'>
     <span className='text-base md:text-xl font-semibold'>
               <p className='flex flex-row gap-1'>Top product of <p className='text-primary'>Jewelery</p></p>
@@ -60,6 +63,7 @@ const Jewellery = () => {
       }
     </div>
   </div >
+  </>
   )
 }
 
