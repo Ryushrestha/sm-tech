@@ -10,7 +10,7 @@ import { Product } from '../../context/ProductContextProvider'
 const Search = () => {
   const [product, setProduct] = useState([])
   const [originalProduct, setOriginalProduct] = useState([])
-  const [search, setSearch] = useState(false)
+  // const [search, setSearch] = useState(false)
 
 
   useEffect(() => {
@@ -22,15 +22,15 @@ const Search = () => {
 
 
   const searchProduct = (value) => {
-
+    const searchWord = value
     const filteredProducts = originalProduct.filter((prod) => {
       return prod.title.toLowerCase().includes(value.toLowerCase()) || prod.category.toLowerCase().includes(value.toLowerCase())
     })
-    
-    setProduct(filteredProducts)
+    if(searchWord === ''){
+      setProduct([])
+    }else{
+    setProduct(filteredProducts)}
   }
-
-
 
   const { handleProduct } = useContext(Product)
 
@@ -40,13 +40,13 @@ const Search = () => {
     navigate('/product')
   }
 
-  const handleClick = () => {
-    setSearch(!search)
-  }
+ 
   return (
     <div className='w-auto relative md:w-1/2'>
       <InputGroup className='border-none '>
-        <InputLeftElement onClick={handleClick} ><button ><BsSearch className='text-primary text-lg' /></button></InputLeftElement>
+        <InputLeftElement o>
+          <button ><BsSearch className='text-primary text-lg' /></button>
+          </InputLeftElement>
         <Input placeholder='Search essentials products' onChange={(e) => searchProduct(e.target.value)} />
         <InputRightElement><BsFilter className='text-primary text-lg' /></InputRightElement>
       </InputGroup>
